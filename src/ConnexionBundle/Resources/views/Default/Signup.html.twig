@@ -1,21 +1,68 @@
-{% extends "::base.html.twig" %}
+{% extends ":default:base.html.twig" %}
 
 {% block main_content %}
     <div class="container">
+        <div class="row main">
+            <div class="main-login main-center">
+                <h5>Sign up once and watch any of our free demos.</h5>
+                <form class="" method="post" action="#">
 
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Nom</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="name" id="name"  placeholder="Entrez votre nom"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Prenom</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="prenom" id="prenom"  placeholder="Entrez votre prenom"/>
+                            </div>
+                        </div>
+                    </div>
 
-    </div> 
-    {% endblock %}
+                    <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Adresse mail</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="email" id="email"  placeholder="Entrez votre email"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="form-group">
+                        <label for="password" class="cols-sm-2 control-label">Mot de passe</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="password" id="password"  placeholder="Entrez votre mot de passe"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm" class="cols-sm-2 control-label">Confirmez votre Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirmez  votre mot de Passe"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a>
+                    </div>
+
+                </form>
+            </div>
+        {% endblock %}

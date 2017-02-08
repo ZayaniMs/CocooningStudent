@@ -1,3 +1,8 @@
 accueil_homepage:
     path:     /accueil
     defaults: { _controller: AccueilBundle:Default:index }
+    
+localisation_homepage:
+    path:     /localisation
+    defaults: { _controller: AccueilBundle:Default:localisation }
+

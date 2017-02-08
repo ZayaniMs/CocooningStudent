@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('AccueilBundle:Default:index.html.twig');
     }
+    
+    public function localisationAction()
+    {
+        return $this->render('AccueilBundle:Default:localisation.html.twig');
+    }
 }
