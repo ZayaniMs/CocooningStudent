@@ -6,3 +6,7 @@ localisation_homepage:
     path:     /localisation
     defaults: { _controller: AccueilBundle:Default:localisation }
 
+
+contact_homepage:
+    path:     /contact
+    defaults: { _controller: AccueilBundle:Default:contact }

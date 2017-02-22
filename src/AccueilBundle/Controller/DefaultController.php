@@ -15,4 +15,10 @@ class DefaultController extends Controller
     {
         return $this->render('AccueilBundle:Default:localisation.html.twig');
     }
+    
+    
+    public function contactAction()
+    {
+        return $this->render('AccueilBundle:Default:contact.html.twig');
+    }
 }
