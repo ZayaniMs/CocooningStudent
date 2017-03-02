@@ -3,6 +3,7 @@
 namespace ConnexionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Users
@@ -10,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="users", indexes={@ORM\Index(name="fk_Users_Adresse1_idx", columns={"Adresse_idAdresse"})})
  * @ORM\Entity
  */
-class Users
-{
+class Users  {
+
     /**
      * @var string
      *
@@ -73,16 +74,13 @@ class Users
      */
     private $adresseadresse;
 
-
-
     /**
      * Set nom
      *
      * @param string $nom
      * @return Users
      */
-    public function setNom($nom)
-    {
+    public function setNom($nom) {
         $this->nom = $nom;
 
         return $this;
@@ -93,8 +91,7 @@ class Users
      *
      * @return string 
      */
-    public function getNom()
-    {
+    public function getNom() {
         return $this->nom;
     }
 
@@ -104,8 +101,7 @@ class Users
      * @param string $prenom
      * @return Users
      */
-    public function setPrenom($prenom)
-    {
+    public function setPrenom($prenom) {
         $this->prenom = $prenom;
 
         return $this;
@@ -116,8 +112,7 @@ class Users
      *
      * @return string 
      */
-    public function getPrenom()
-    {
+    public function getPrenom() {
         return $this->prenom;
     }
 
@@ -127,8 +122,7 @@ class Users
      * @param string $mdp
      * @return Users
      */
-    public function setMdp($mdp)
-    {
+    public function setMdp($mdp) {
         $this->mdp = $mdp;
 
         return $this;
@@ -139,8 +133,7 @@ class Users
      *
      * @return string 
      */
-    public function getMdp()
-    {
+    public function getMdp() {
         return $this->mdp;
     }
 
@@ -150,8 +143,7 @@ class Users
      * @param string $rue
      * @return Users
      */
-    public function setRue($rue)
-    {
+    public function setRue($rue) {
         $this->rue = $rue;
 
         return $this;
@@ -162,8 +154,7 @@ class Users
      *
      * @return string 
      */
-    public function getRue()
-    {
+    public function getRue() {
         return $this->rue;
     }
 
@@ -173,8 +164,7 @@ class Users
      * @param string $numero
      * @return Users
      */
-    public function setNumero($numero)
-    {
+    public function setNumero($numero) {
         $this->numero = $numero;
 
         return $this;
@@ -185,8 +175,7 @@ class Users
      *
      * @return string 
      */
-    public function getNumero()
-    {
+    public function getNumero() {
         return $this->numero;
     }
 
@@ -196,8 +185,7 @@ class Users
      * @param string $email
      * @return Users
      */
-    public function setEmail($email)
-    {
+    public function setEmail($email) {
         $this->email = $email;
 
         return $this;
@@ -208,8 +196,7 @@ class Users
      *
      * @return string 
      */
-    public function getEmail()
-    {
+    public function getEmail() {
         return $this->email;
     }
 
@@ -218,8 +205,7 @@ class Users
      *
      * @return integer 
      */
-    public function getIdusers()
-    {
+    public function getIdusers() {
         return $this->idusers;
     }
 
@@ -229,8 +215,7 @@ class Users
      * @param \ConnexionBundle\Entity\Adresse $adresseadresse
      * @return Users
      */
-    public function setAdresseadresse(\ConnexionBundle\Entity\Adresse $adresseadresse = null)
-    {
+    public function setAdresseadresse(\ConnexionBundle\Entity\Adresse $adresseadresse = null) {
         $this->adresseadresse = $adresseadresse;
 
         return $this;
@@ -241,8 +226,11 @@ class Users
      *
      * @return \ConnexionBundle\Entity\Adresse 
      */
-    public function getAdresseadresse()
-    {
+    public function getAdresseadresse() {
         return $this->adresseadresse;
     }
+    
+    
+    
+
 }

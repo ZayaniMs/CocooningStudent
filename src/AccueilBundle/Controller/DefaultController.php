@@ -3,6 +3,7 @@
 namespace AccueilBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -21,4 +22,10 @@ class DefaultController extends Controller
     {
         return $this->render('AccueilBundle:Default:contact.html.twig');
     }
+    
+     public function serviceAction()
+    {
+        return $this->render('AccueilBundle:Default:services.html.twig');
+    }
+   
 }

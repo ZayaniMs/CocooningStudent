@@ -18,7 +18,6 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="{{path('accueil_homepage')}}">Home</a></li>
-                            <li><a href="#about">About</a></li>
                             <li><a href="{{path('contact_homepage')}}">Contact</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
@@ -40,7 +39,6 @@
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
@@ -48,31 +46,22 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>Bienvenue Cocooning</h1>
-                        <p>jbgfkgjbgjbgjkgbgjkfdnkjdfbfkjbbgjfgjg</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up</a></p>
+                        <p></p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Commencer</a></p>
                     </div>
                 </div>
             </div>
             <div class="item">
-                <img class="second-slide" src="{{ asset('images/cocooningb.jpg') }}" alt="Second slide">
+                <img class="second-slide" src="{{ asset('images/logement.jpg') }}" alt="Second slide">
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>cocooning</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                        <p>Futur leader dans la recherche de logement</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">plus d'informations</a></p>
                     </div>
                 </div>
             </div>
-            <div class="item">
-                <img class="third-slide" src="{{ asset('images/cocooningb.jpg') }}" alt="Third slide">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Test</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                    </div>
-                </div>
-            </div>
+
         </div>
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -84,73 +73,102 @@
         </a>
     </div><!-- /.carousel -->
 
+
 {% endblock %}
 
 
 {% block main_content %}
-    <div class="signup">
-        <p><strong>Nouvel utilisateur</strong></p>
-        <div class="row main">
-            <div class="main-login main-center">
-                <h5></h5>
-                <form class="" method="post" action="#">
-
-                    <div class="form-group">
-                        <label for="name" class="cols-sm-2 control-label">Nom</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" name="name" id="name"  placeholder="Entrez votre nom"/>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="name" class="cols-sm-2 control-label">Prenom</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" name="prenom" id="prenom"  placeholder="Entrez votre prenom"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" class="cols-sm-2 control-label">Adresse mail</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" name="email" id="email"  placeholder="Entrez votre email"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-
-                    <div class="form-group">
-                        <label for="password" class="cols-sm-2 control-label">Mot de passe</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
-                                <input type="password" class="form-control" name="password" id="password"  placeholder="Entrez votre mot de passe"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="confirm" class="cols-sm-2 control-label">Confirmez votre Password</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
-                                <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirmez  votre mot de Passe"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group ">
-                        <a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a>
-                    </div>
-
-                </form>
+    <div class="container">
+        <form id="form" class="well" method="POST" action="{{path('Signup_homepage')}}">
+            <h2>sign up</h2>
+            <label>Username</label>
+            <input type="text" name="username" class="input-xlarge"></br>
+            <label>Password</label>
+            <input type="password" name="password" class="input-xlarge"></br>
+            <label>Nom</label>
+            <input type="text" name="nom" class="input-xlarge"></br>
+            <label>Email</label>
+            <input type="text" name="email" class="input-xlarge"></br>
+            <label>Telephone</label>
+            <input type="text" name="telephone" class="input-xlarge">
+            <div>
+                <button  class="btn btn-secondary" type="submit" value='inscription'<a href="{{path('connexion_homepage')}}">Inscription</button>
             </div>
-        {% endblock %}
+        </form>
+
+    </div> 
+{% endblock %}
+
+
+{% block footer %}
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <section class="links">
+                <div class="row">
+                    <section class="col-lg-3">
+                        <h3>L'entreprise</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">A propos</a></li>
+                            <li><a href="#">Règles</a></li>
+                            <li><a href="#">Carrière</a></li>
+                            <li><a href="#">Aide</a></li>
+
+                        </ul>
+                    </section>
+                    <section class="col-lg-3">
+                        <h3>Cocooning Students</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Comment sa marche ?</a></li>
+                            <li><a href="#">Parrainage</a></li>
+                            <li><a href="#">Confiance et sécurité</a></li>
+                            <li><a href="#">Conditions générales et confidentialité</a></li>
+
+
+                        </ul>
+                    </section>
+                    <section class="col-lg-3">
+                        <h3>Bailleur</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Pourquoi louer vôtre Chambre ?</a></li>
+                            <li><a href="#">Conditions et règles</a></li>
+                            <li><a href="#">Parrainage bailleur</a></li>
+
+                        </ul>
+                    </section>
+
+                </div>
+            </section>
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="copyright">
+                        <li>&copy; Cocooning. All rights reserved.</li>
+                        <li>Design: <a href="#">Zayani Mehdi Salim</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="icons">
+                        <li>
+                            <a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
+                        </li>
+                        <li>
+                            <a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
+                        </li>
+                        <li>
+                            <a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
+                        </li>
+                        <li>
+                            <a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+{% endblock %}

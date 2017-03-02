@@ -1,13 +1,11 @@
 connexion_homepage:
     path:     /login
-    defaults: { _controller: ConnexionBundle:Default:connexion }
+    defaults: { _controller: ConnexionBundle:Default:login }
 
 Signup_homepage:
     path:     /signup
-    defaults: { _controller: ConnexionBundle:Default:Signup }
+    defaults: { _controller: ConnexionBundle:Default:signup }
     
-
-
-
-
-
+login_listContact:
+    path:     /listContact
+    defaults: { _controller: LoginLoginBundle:Default:listContact}

@@ -19,7 +19,6 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="{{path('accueil_homepage')}}">Home</a></li>
-                            <li><a href="#about">About</a></li>
                             <li><a href="{{path('contact_homepage')}}">Contact</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
@@ -41,7 +40,6 @@
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
@@ -49,31 +47,22 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>Bienvenue Cocooning</h1>
-                        <p>jbgfkgjbgjbgjkgbgjkfdnkjdfbfkjbbgjfgjg</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up</a></p>
+                        <p></p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Commencer</a></p>
                     </div>
                 </div>
             </div>
             <div class="item">
-                <img class="second-slide" src="{{ asset('images/cocooningb.jpg') }}" alt="Second slide">
+                <img class="second-slide" src="{{ asset('images/logement.jpg') }}" alt="Second slide">
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>cocooning</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                        <p>Futur leader dans la recherche de logement</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">plus d'informations</a></p>
                     </div>
                 </div>
             </div>
-            <div class="item">
-                <img class="third-slide" src="{{ asset('images/cocooningb.jpg') }}" alt="Third slide">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Test</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                    </div>
-                </div>
-            </div>
+
         </div>
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -89,36 +78,95 @@
 
 
 {% block main_content %}
-    <div class="row">
-        <p><strong> Connexion </strong></p>
-        <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Login via site</h3>
+    <div class='container'> 
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <form class="form-signin" method="POST" action="{{path('connexion_homepage')}}" data-validate="parsley">
+                    <h2 class="form-signin-heading">se  connecter</h2>
+                    <label for="inputEmail" class="sr-only">Email address</label>
+                    <input type="text" id="inputEmail" class="form-control" name="username" placeholder="username" data-trigger="change" data-require="true">
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+
+                    <button class="btn btn-lg btn-succes btn-block col-xs-6" type="submit">connexion</button>
+                    <a href="{{path('Signup_homepage')}}">creer un compte</a>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    {% if name is defined %}
+        <div class="alert-info fade in">
+            <strong>{{name}}</strong> 
+        </div>
+    {%endif%}
+
+{% endblock %}
+
+{% block footer %}
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <section class="links">
+                <div class="row">
+                    <section class="col-lg-3">
+                        <h3>L'entreprise</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">A propos</a></li>
+                            <li><a href="#">Règles</a></li>
+                            <li><a href="#">Carrière</a></li>
+                            <li><a href="#">Aide</a></li>
+
+                        </ul>
+                    </section>
+                    <section class="col-lg-3">
+                        <h3>Cocooning Students</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Comment sa marche ?</a></li>
+                            <li><a href="#">Parrainage</a></li>
+                            <li><a href="#">Confiance et sécurité</a></li>
+                            <li><a href="#">Conditions générales et confidentialité</a></li>
+
+
+                        </ul>
+                    </section>
+                    <section class="col-lg-3">
+                        <h3>Bailleur</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Pourquoi louer vôtre Chambre ?</a></li>
+                            <li><a href="#">Conditions et règles</a></li>
+                            <li><a href="#">Parrainage bailleur</a></li>
+
+                        </ul>
+                    </section>
+
                 </div>
-                <div class="panel-body">
-                    <form accept-charset="UTF-8" role="form">
-                        <fieldset>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="yourmail@example.com" name="email" type="text">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input name="remember" type="checkbox" value="Remember Me"> Remember Me
-                                </label>
-                            </div>
-                            <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
-                        </fieldset>
-                    </form>
-                    <hr/>
-                    <center><h4>OR</h4></center>
-                    <input class="btn btn-lg btn-facebook btn-block" type="submit" value="Login via facebook">
+            </section>
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="copyright">
+                        <li>&copy; Cocooning. All rights reserved.</li>
+                        <li>Design: <a href="#">Zayani Mehdi Salim</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="icons">
+                        <li>
+                            <a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
+                        </li>
+                        <li>
+                            <a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
+                        </li>
+                        <li>
+                            <a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
+                        </li>
+                        <li>
+                            <a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </footer>
 {% endblock %}

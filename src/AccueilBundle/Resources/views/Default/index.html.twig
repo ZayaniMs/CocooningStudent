@@ -20,7 +20,6 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="{{path('accueil_homepage')}}">Home</a></li>
-                            <li><a href="#about">About</a></li>
                             <li><a href="{{path('contact_homepage')}}">Contact</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
@@ -42,7 +41,6 @@
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
@@ -50,31 +48,22 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>Bienvenue Cocooning</h1>
-                        <p>jbgfkgjbgjbgjkgbgjkfdnkjdfbfkjbbgjfgjg</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up</a></p>
+                        <p></p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Commencer</a></p>
                     </div>
                 </div>
             </div>
             <div class="item">
-                <img class="second-slide" src="{{ asset('images/cocooningb.jpg') }}" alt="Second slide">
+                <img class="second-slide" src="{{ asset('images/logement.jpg') }}" alt="Second slide">
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>cocooning</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                        <p>Futur leader dans la recherche de logement</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">plus d'informations</a></p>
                     </div>
                 </div>
             </div>
-            <div class="item">
-                <img class="third-slide" src="{{ asset('images/cocooningb.jpg') }}" alt="Third slide">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Test</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -85,42 +74,94 @@
             <span class="sr-only">Next</span>
         </a>
     </div><!-- /.carousel -->
+    
+    <h2>Notre concept :</h2>
+            <p>
+                Plateforme communautaire permettant la mise en relation entre étudiants à la recherche d’un logement, et propriétaire ou locataire ayant une chambre ou plusieurs chambres à louer ou à sous louer.
+            </p>
+            <p>
+                Spéciﬁcités de notre offre : L'offre ne se limite pas à la mise à disposition d'une chambre, elle comprendra le petit-déjeuner,  l'étudiant(e) aura accès à toutes les facilités (lave-linge, sèche-linge ...) du logement et pourra si il (elle) le désire partager les repas de la famille. Il (elle) pourra donc se consacrer à ses études sans se soucier des contingences matérielles inhérentes à la décohabitation.</p></br>
+            <p>
 
-    <div class="row">
-        <div class="col-xs-6 col-sm-4">
-            <div class="thumbnail">
-                <img src="{{ asset('images/Home.png') }}" alt="..." class="img-circle">
-                <div class="caption">
-                    <h3>Logement</h3>
-                    <p>...</p>
-                    <p><a href="{{path('localisation_homepage')}}">Louer une chambre</a></p>
+                ✤ Dimension sociale, le prix de la location devra être aligné sur ceux pratiqués par le CROUS.</br>
+                ✤ La plate forme facilitera toute les démarches administratives du locataire et du loueur (quittance de loyer, garantie 
+                loyer impayés, état des lieux, contrat de location, demande d’autorisation de sous louer, déclaration fiscale, souscription d’une assurance, gestion des litiges…). 
+                </br>
+                Elle affichera le profil des étudiants(es) ainsi que l’évaluation de la chambre louée. </br>
+                ✤ Ce projet s’inscrit dans une démarche de consommation collaborative. L'objectif est de proposer une solution d'hébergement sûre et sans soucis pour les étudiants, leurs parents et les propriétaires.</p>
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer %}
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <section class="links">
+                <div class="row">
+                    <section class="col-lg-3">
+                        <h3>L'entreprise</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">A propos</a></li>
+                            <li><a href="#">Règles</a></li>
+                            <li><a href="#">Carrière</a></li>
+                            <li><a href="#">Aide</a></li>
+
+                        </ul>
+                    </section>
+                    <section class="col-lg-3">
+                        <h3>Cocooning Students</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Comment sa marche ?</a></li>
+                            <li><a href="#">Parrainage</a></li>
+                            <li><a href="#">Confiance et sécurité</a></li>
+                            <li><a href="#">Conditions générales et confidentialité</a></li>
+
+
+                        </ul>
+                    </section>
+                    <section class="col-lg-3">
+                        <h3>Bailleur</h3>
+                        <ul class="unstyled">
+                            <li><a href="#">Pourquoi louer vôtre Chambre ?</a></li>
+                            <li><a href="#">Conditions et règles</a></li>
+                            <li><a href="#">Parrainage bailleur</a></li>
+
+                        </ul>
+                    </section>
+
+                </div>
+            </section>
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="copyright">
+                        <li>&copy; Cocooning. All rights reserved.</li>
+                        <li>Design: <a href="#">Zayani Mehdi Salim</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="icons">
+                        <li>
+                            <a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
+                        </li>
+                        <li>
+                            <a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
+                        </li>
+                        <li>
+                            <a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
+                        </li>
+                        <li>
+                            <a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
+    </footer>
 
-        <div class="col-xs-6 col-sm-4">
-            <div class="thumbnail">
-                <img src="{{ asset('images/Home.png') }}" alt="...">
-                <div class="caption">
-                    <h3>Location</h3>
-                    <p>...</p>
-                    <p><a href="#">chercher une chambre</a></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-6 col-sm-4">
-            <div class="thumbnail">
-                <img src="{{ asset('images/Home.png') }}" alt="...">
-                <div class="caption">
-                    <h3>Assurance</h3>
-                    <p>...</p>
-                    <p><a href="#">Plus d'informations</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
+ 
 
 
 {% endblock %}

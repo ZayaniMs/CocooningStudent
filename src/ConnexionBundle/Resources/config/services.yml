@@ -1,4 +1,6 @@
 services:
-#    connexion.example:
-#        class: ConnexionBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    security.authentication.success_handler:
+        class: ConnexionBundle\Handler\AuthenticationSuccessHandler
+        arguments: [@security.http_utils, @service_container, {}]
+        tags:
+            - { name: 'monolog.logger', channel: 'security'}

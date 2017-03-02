@@ -10,3 +10,8 @@ localisation_homepage:
 contact_homepage:
     path:     /contact
     defaults: { _controller: AccueilBundle:Default:contact }
+    
+    
+service_homepage:
+    path:     /services
+    defaults: { _controller: AccueilBundle:Default:service }
