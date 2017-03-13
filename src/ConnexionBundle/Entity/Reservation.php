@@ -13,6 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
 class Reservation
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="idReservation", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idreservation;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="debut", type="datetime", nullable=true)
@@ -34,158 +43,73 @@ class Reservation
     private $payer;
 
     /**
-     * @var integer
+     * @var \Annonces
      *
-     * @ORM\Column(name="idReservation", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idreservation;
-
-    /**
-     * @var \ConnexionBundle\Entity\Users
-     *
-     * @ORM\ManyToOne(targetEntity="ConnexionBundle\Entity\Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Users_idUsers", referencedColumnName="idUsers")
-     * })
-     */
-    private $usersusers;
-
-    /**
-     * @var \ConnexionBundle\Entity\Annonces
-     *
-     * @ORM\ManyToOne(targetEntity="ConnexionBundle\Entity\Annonces")
+     * @ORM\ManyToOne(targetEntity="Annonces")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Annonces_idannonces", referencedColumnName="idannonces")
      * })
      */
     private $annoncesannonces;
 
-
-
     /**
-     * Set debut
+     * @var \Users
      *
-     * @param \DateTime $debut
-     * @return Reservation
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Users_idUsers", referencedColumnName="idUsers")
+     * })
      */
-    public function setDebut($debut)
-    {
-        $this->debut = $debut;
+    private $usersusers;
 
-        return $this;
-    }
 
-    /**
-     * Get debut
-     *
-     * @return \DateTime 
-     */
-    public function getDebut()
-    {
-        return $this->debut;
-    }
-
-    /**
-     * Set statut
-     *
-     * @param string $statut
-     * @return Reservation
-     */
-    public function setStatut($statut)
-    {
-        $this->statut = $statut;
-
-        return $this;
-    }
-
-    /**
-     * Get statut
-     *
-     * @return string 
-     */
-    public function getStatut()
-    {
-        return $this->statut;
-    }
-
-    /**
-     * Set payer
-     *
-     * @param string $payer
-     * @return Reservation
-     */
-    public function setPayer($payer)
-    {
-        $this->payer = $payer;
-
-        return $this;
-    }
-
-    /**
-     * Get payer
-     *
-     * @return string 
-     */
-    public function getPayer()
-    {
-        return $this->payer;
-    }
-
-    /**
-     * Get idreservation
-     *
-     * @return integer 
-     */
-    public function getIdreservation()
-    {
+    function getIdreservation() {
         return $this->idreservation;
     }
 
-    /**
-     * Set usersusers
-     *
-     * @param \ConnexionBundle\Entity\Users $usersusers
-     * @return Reservation
-     */
-    public function setUsersusers(\ConnexionBundle\Entity\Users $usersusers = null)
-    {
-        $this->usersusers = $usersusers;
-
-        return $this;
+    function getDebut() {
+        return $this->debut;
     }
 
-    /**
-     * Get usersusers
-     *
-     * @return \ConnexionBundle\Entity\Users 
-     */
-    public function getUsersusers()
-    {
+    function getStatut() {
+        return $this->statut;
+    }
+
+    function getPayer() {
+        return $this->payer;
+    }
+
+    function getAnnoncesannonces() {
+        return $this->annoncesannonces;
+    }
+
+    function getUsersusers() {
         return $this->usersusers;
     }
 
-    /**
-     * Set annoncesannonces
-     *
-     * @param \ConnexionBundle\Entity\Annonces $annoncesannonces
-     * @return Reservation
-     */
-    public function setAnnoncesannonces(\ConnexionBundle\Entity\Annonces $annoncesannonces = null)
-    {
+    function setIdreservation($idreservation) {
+        $this->idreservation = $idreservation;
+    }
+
+    function setDebut(\DateTime $debut) {
+        $this->debut = $debut;
+    }
+
+    function setStatut($statut) {
+        $this->statut = $statut;
+    }
+
+    function setPayer($payer) {
+        $this->payer = $payer;
+    }
+
+    function setAnnoncesannonces(\Annonces $annoncesannonces) {
         $this->annoncesannonces = $annoncesannonces;
-
-        return $this;
     }
 
-    /**
-     * Get annoncesannonces
-     *
-     * @return \ConnexionBundle\Entity\Annonces 
-     */
-    public function getAnnoncesannonces()
-    {
-        return $this->annoncesannonces;
+    function setUsersusers(\Users $usersusers) {
+        $this->usersusers = $usersusers;
     }
+
+
 }

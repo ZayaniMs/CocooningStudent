@@ -13,6 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
 class Documents
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="idDocuments", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $iddocuments;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=45, nullable=true)
@@ -27,18 +36,9 @@ class Documents
     private $chemin;
 
     /**
-     * @var integer
+     * @var \Reservation
      *
-     * @ORM\Column(name="idDocuments", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $iddocuments;
-
-    /**
-     * @var \ConnexionBundle\Entity\Reservation
-     *
-     * @ORM\ManyToOne(targetEntity="ConnexionBundle\Entity\Reservation")
+     * @ORM\ManyToOne(targetEntity="Reservation")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Reservation_idReservation", referencedColumnName="idReservation")
      * })
@@ -46,83 +46,37 @@ class Documents
     private $reservationreservation;
 
 
-
-    /**
-     * Set type
-     *
-     * @param string $type
-     * @return Documents
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string 
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Set chemin
-     *
-     * @param string $chemin
-     * @return Documents
-     */
-    public function setChemin($chemin)
-    {
-        $this->chemin = $chemin;
-
-        return $this;
-    }
-
-    /**
-     * Get chemin
-     *
-     * @return string 
-     */
-    public function getChemin()
-    {
-        return $this->chemin;
-    }
-
-    /**
-     * Get iddocuments
-     *
-     * @return integer 
-     */
-    public function getIddocuments()
-    {
+    function getIddocuments() {
         return $this->iddocuments;
     }
 
-    /**
-     * Set reservationreservation
-     *
-     * @param \ConnexionBundle\Entity\Reservation $reservationreservation
-     * @return Documents
-     */
-    public function setReservationreservation(\ConnexionBundle\Entity\Reservation $reservationreservation = null)
-    {
-        $this->reservationreservation = $reservationreservation;
-
-        return $this;
+    function getType() {
+        return $this->type;
     }
 
-    /**
-     * Get reservationreservation
-     *
-     * @return \ConnexionBundle\Entity\Reservation 
-     */
-    public function getReservationreservation()
-    {
+    function getChemin() {
+        return $this->chemin;
+    }
+
+    function getReservationreservation() {
         return $this->reservationreservation;
     }
+
+    function setIddocuments($iddocuments) {
+        $this->iddocuments = $iddocuments;
+    }
+
+    function setType($type) {
+        $this->type = $type;
+    }
+
+    function setChemin($chemin) {
+        $this->chemin = $chemin;
+    }
+
+    function setReservationreservation(\Reservation $reservationreservation) {
+        $this->reservationreservation = $reservationreservation;
+    }
+
+
 }

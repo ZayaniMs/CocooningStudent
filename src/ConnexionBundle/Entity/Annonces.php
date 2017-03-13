@@ -7,24 +7,26 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Annonces
  *
- * @ORM\Table(name="annonces", indexes={@ORM\Index(name="fk_Annonces_Adresse_idx", columns={"Adresse_idAdresse"})})
+ * @ORM\Table(name="annonces")
  * @ORM\Entity
  */
 class Annonces
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="rue", type="string", length=45, nullable=true)
+     * @ORM\Column(name="idannonces", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $rue;
+    private $idannonces;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="numero", type="string", length=45, nullable=true)
+     * @ORM\Column(name="adresse", type="string", length=45, nullable=true)
      */
-    private $numero;
+    private $adresse;
 
     /**
      * @var string
@@ -55,194 +57,101 @@ class Annonces
     private $visible;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="idannonces", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Column(name="titre", type="string", length=45, nullable=true)
      */
-    private $idannonces;
+    private $titre;
 
     /**
-     * @var \ConnexionBundle\Entity\Adresse
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="ConnexionBundle\Entity\Adresse")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Adresse_idAdresse", referencedColumnName="idAdresse")
-     * })
+     * @ORM\Column(name="codePostal", type="string", length=5, nullable=true)
      */
-    private $adresseadresse;
-
-
+    private $codepostal;
 
     /**
-     * Set rue
+     * @var string
      *
-     * @param string $rue
-     * @return Annonces
+     * @ORM\Column(name="ville", type="string", length=45, nullable=true)
      */
-    public function setRue($rue)
-    {
-        $this->rue = $rue;
+    private $ville;
 
-        return $this;
-    }
 
-    /**
-     * Get rue
-     *
-     * @return string 
-     */
-    public function getRue()
-    {
-        return $this->rue;
-    }
-
-    /**
-     * Set numero
-     *
-     * @param string $numero
-     * @return Annonces
-     */
-    public function setNumero($numero)
-    {
-        $this->numero = $numero;
-
-        return $this;
-    }
-
-    /**
-     * Get numero
-     *
-     * @return string 
-     */
-    public function getNumero()
-    {
-        return $this->numero;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Annonces
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set prix
-     *
-     * @param string $prix
-     * @return Annonces
-     */
-    public function setPrix($prix)
-    {
-        $this->prix = $prix;
-
-        return $this;
-    }
-
-    /**
-     * Get prix
-     *
-     * @return string 
-     */
-    public function getPrix()
-    {
-        return $this->prix;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Annonces
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * Set visible
-     *
-     * @param string $visible
-     * @return Annonces
-     */
-    public function setVisible($visible)
-    {
-        $this->visible = $visible;
-
-        return $this;
-    }
-
-    /**
-     * Get visible
-     *
-     * @return string 
-     */
-    public function getVisible()
-    {
-        return $this->visible;
-    }
-
-    /**
-     * Get idannonces
-     *
-     * @return integer 
-     */
-    public function getIdannonces()
-    {
+    function getIdannonces() {
         return $this->idannonces;
     }
 
-    /**
-     * Set adresseadresse
-     *
-     * @param \ConnexionBundle\Entity\Adresse $adresseadresse
-     * @return Annonces
-     */
-    public function setAdresseadresse(\ConnexionBundle\Entity\Adresse $adresseadresse = null)
-    {
-        $this->adresseadresse = $adresseadresse;
-
-        return $this;
+    function getAdresse() {
+        return $this->adresse;
     }
 
-    /**
-     * Get adresseadresse
-     *
-     * @return \ConnexionBundle\Entity\Adresse 
-     */
-    public function getAdresseadresse()
-    {
-        return $this->adresseadresse;
+    function getDescription() {
+        return $this->description;
     }
+
+    function getPrix() {
+        return $this->prix;
+    }
+
+    function getDate() {
+        return $this->date;
+    }
+
+    function getVisible() {
+        return $this->visible;
+    }
+
+    function getTitre() {
+        return $this->titre;
+    }
+
+    function getCodepostal() {
+        return $this->codepostal;
+    }
+
+    function getVille() {
+        return $this->ville;
+    }
+
+    function setIdannonces($idannonces) {
+        $this->idannonces = $idannonces;
+    }
+
+    function setAdresse($adresse) {
+        $this->adresse = $adresse;
+    }
+
+    function setDescription($description) {
+        $this->description = $description;
+    }
+
+    function setPrix($prix) {
+        $this->prix = $prix;
+    }
+
+    function setDate(\DateTime $date) {
+        $this->date = $date;
+    }
+
+    function setVisible($visible) {
+        $this->visible = $visible;
+    }
+
+    function setTitre($titre) {
+        $this->titre = $titre;
+    }
+
+    function setCodepostal($codepostal) {
+        $this->codepostal = $codepostal;
+    }
+
+    function setVille($ville) {
+        $this->ville = $ville;
+    }
+    
+    
+   
+
+
 }

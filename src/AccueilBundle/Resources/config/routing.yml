@@ -5,6 +5,11 @@ accueil_homepage:
 localisation_homepage:
     path:     /localisation
     defaults: { _controller: AccueilBundle:Default:localisation }
+    
+
+location_homepage:
+    path:     /location
+    defaults: { _controller: AccueilBundle:Default:location }
 
 
 contact_homepage:

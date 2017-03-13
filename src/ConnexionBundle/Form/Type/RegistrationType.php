@@ -24,11 +24,12 @@ class RegistrationType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('username', 'text', ['label'=>'User Name'])
-                ->add('password', 'password',['label'=>'Password'])
-                ->add('confirm', 'password', ['mapped' => false,'label'=>'Re-type password'])
-                ->add('email', 'hidden', ['label'=>'email'])
-                ->add('save', 'submit', ['label'=>'Register'])
+        $builder->add('nom', 'text')
+                ->add('prenom', 'text')
+                ->add('mdp', 'password')
+                ->add('email', 'email')
+                ->add('save','submit')
+                
         ;
     }
 

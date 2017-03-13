@@ -1,60 +1,59 @@
+{% extends ":default:base.html.twig" %}
 
-{% block stylesheets %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet"  href="{{ asset('css/style.css') }}" />
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
-    <style>
-       body {
-        background-color: #D3D3D3;
-        
-      }
-    </style>
-{% endblock %}
 
-{% block header %}
- 
-    <div class="navbar-wrapper">
-        <div class="container">
+{% block menu %}
 
-            <nav class="navbar navbar-default">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#">Cocooning</a>
+
+    <!-- Navigation -->
+    <div id="navigation">
+        <nav class="navbar navbar-custom" role="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="site-logo">
+                            <a href="index.html" class="brand">Cocooning</a>
+                        </div>
                     </div>
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="{{path('accueil_homepage')}}">Home</a></li>
-                            <li><a href="{{path('contact_homepage')}}">Contact</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="{{path('Signup_homepage')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                            <li><a href="{{path('connexion_homepage')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                        </ul>
+
+
+                    <div class="col-md-10">
+
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="menu">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="active"><a href="{{path('accueil_homepage')}}">Home</a></li>
+                                <li><a href="#about">A Propos</a></li>
+                                <li><a href="#service">Services</a></li>
+                                <li><a href="#works">Chambres</a></li>				                                                                  
+
+                                <li><a href="{{path('contact_homepage')}}">Contact</a></li>
+                                <li><a href="{{path('connexion_homepage')}}">Connexion</a></li>
+                                
+                            </ul>
+                        </div>
+                        <!-- /.Navbar-collapse -->
+
                     </div>
                 </div>
-            </nav>
-
-        </div>
-    </div>
+            </div>
+            <!-- /.container -->
+        </nav>
+    </div> 
 
 {% endblock %}
 
 
-{% block main_content %}
-    
-    
-    {% endblock %}
 
 
 
-    
-    
-    
+
+
+
+
+

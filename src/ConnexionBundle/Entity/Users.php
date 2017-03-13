@@ -2,16 +2,31 @@
 
 namespace ConnexionBundle\Entity;
 
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\MaxLength;
+use Symfony\Component\Validator\Constraints\MinLength;
+
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Users
  *
- * @ORM\Table(name="users", indexes={@ORM\Index(name="fk_Users_Adresse1_idx", columns={"Adresse_idAdresse"})})
+ * @ORM\Table(name="users")
  * @ORM\Entity
  */
-class Users  {
+class Users {
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idUsers", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idusers;
 
     /**
      * @var string
@@ -37,16 +52,9 @@ class Users  {
     /**
      * @var string
      *
-     * @ORM\Column(name="rue", type="string", length=45, nullable=true)
+     * @ORM\Column(name="addresse", type="string", length=45, nullable=true)
      */
-    private $rue;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="numero", type="string", length=45, nullable=true)
-     */
-    private $numero;
+    private $addresse;
 
     /**
      * @var string
@@ -56,181 +64,114 @@ class Users  {
     private $email;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="idUsers", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Column(name="telephone", type="string", length=10, nullable=true)
      */
-    private $idusers;
+    private $telephone;
 
     /**
-     * @var \ConnexionBundle\Entity\Adresse
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="ConnexionBundle\Entity\Adresse")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Adresse_idAdresse", referencedColumnName="idAdresse")
-     * })
+     * @ORM\Column(name="codePostall", type="string", length=5, nullable=true)
      */
-    private $adresseadresse;
+    private $codepostall;
 
     /**
-     * Set nom
+     * @var string
      *
-     * @param string $nom
-     * @return Users
+     * @ORM\Column(name="ville", type="string", length=45, nullable=true)
      */
-    public function setNom($nom) {
-        $this->nom = $nom;
+    private $ville;
 
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string 
-     */
-    public function getNom() {
-        return $this->nom;
-    }
-
-    /**
-     * Set prenom
-     *
-     * @param string $prenom
-     * @return Users
-     */
-    public function setPrenom($prenom) {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    /**
-     * Get prenom
-     *
-     * @return string 
-     */
-    public function getPrenom() {
-        return $this->prenom;
-    }
-
-    /**
-     * Set mdp
-     *
-     * @param string $mdp
-     * @return Users
-     */
-    public function setMdp($mdp) {
-        $this->mdp = $mdp;
-
-        return $this;
-    }
-
-    /**
-     * Get mdp
-     *
-     * @return string 
-     */
-    public function getMdp() {
-        return $this->mdp;
-    }
-
-    /**
-     * Set rue
-     *
-     * @param string $rue
-     * @return Users
-     */
-    public function setRue($rue) {
-        $this->rue = $rue;
-
-        return $this;
-    }
-
-    /**
-     * Get rue
-     *
-     * @return string 
-     */
-    public function getRue() {
-        return $this->rue;
-    }
-
-    /**
-     * Set numero
-     *
-     * @param string $numero
-     * @return Users
-     */
-    public function setNumero($numero) {
-        $this->numero = $numero;
-
-        return $this;
-    }
-
-    /**
-     * Get numero
-     *
-     * @return string 
-     */
-    public function getNumero() {
-        return $this->numero;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return Users
-     */
-    public function setEmail($email) {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail() {
-        return $this->email;
-    }
-
-    /**
-     * Get idusers
-     *
-     * @return integer 
-     */
-    public function getIdusers() {
+    function getIdusers() {
         return $this->idusers;
     }
 
-    /**
-     * Set adresseadresse
-     *
-     * @param \ConnexionBundle\Entity\Adresse $adresseadresse
-     * @return Users
-     */
-    public function setAdresseadresse(\ConnexionBundle\Entity\Adresse $adresseadresse = null) {
-        $this->adresseadresse = $adresseadresse;
-
-        return $this;
+    function getNom() {
+        return $this->nom;
     }
 
-    /**
-     * Get adresseadresse
-     *
-     * @return \ConnexionBundle\Entity\Adresse 
-     */
-    public function getAdresseadresse() {
-        return $this->adresseadresse;
+    function getPrenom() {
+        return $this->prenom;
     }
-    
-    
-    
+
+    function getMdp() {
+        return $this->mdp;
+    }
+
+    function getAddresse() {
+        return $this->addresse;
+    }
+
+    function getEmail() {
+        return $this->email;
+    }
+
+    function getTelephone() {
+        return $this->telephone;
+    }
+
+    function getCodepostall() {
+        return $this->codepostall;
+    }
+
+    function getVille() {
+        return $this->ville;
+    }
+
+    function setIdusers($idusers) {
+        $this->idusers = $idusers;
+    }
+
+    function setNom($nom) {
+        $this->nom = $nom;
+    }
+
+    function setPrenom($prenom) {
+        $this->prenom = $prenom;
+    }
+
+    function setMdp($mdp) {
+        $this->mdp = $mdp;
+    }
+
+    function setAddresse($addresse) {
+        $this->addresse = $addresse;
+    }
+
+    function setEmail($email) {
+        $this->email = $email;
+    }
+
+    function setTelephone($telephone) {
+        $this->telephone = $telephone;
+    }
+
+    function setCodepostall($codepostall) {
+        $this->codepostall = $codepostall;
+    }
+
+    function setVille($ville) {
+        $this->ville = $ville;
+    }
+
+    public static function loadValidatorMetadata(ClassMetadata $metadata) {
+        $metadata->addPropertyConstraint('nom', new NotBlank(array(
+            'message' => 'Le champ est vide')));
+        
+
+        $metadata->addPropertyConstraint('prenom', new NotBlank(array(
+            'message' => 'Le champ est vide')));
+        $metadata->addPropertyConstraint('mdp',new NotBlank(array(
+            'message' => 'Le champ est vide')));
+
+
+
+
+        $metadata->addPropertyConstraint('email', new Email(array(
+            'message' => 'invalide adresse mail'
+        )));
+    }
 
 }

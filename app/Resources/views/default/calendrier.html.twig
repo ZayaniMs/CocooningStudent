@@ -1,0 +1,18 @@
+
+{% block css %}
+    
+        <link rel="stylesheet"  href="{{ asset('css/calendrier.css') }}" />
+
+{% endblock %}
+
+{% block body %}
+<p>Date : <input type="text" value=""  name="date1" id="champ_date1" size="12" maxlength="10"></p>
+<div id="calendarMain1"></div>
+
+<script type="text/javascript">
+//<![CDATA[
+calInit("calendarMain1", "", "champ_date1", "jsCalendar", "day", "selectedDay");
+//]]>
+</script>
+
+{%endblock %}

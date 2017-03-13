@@ -1,161 +1,53 @@
 {% extends ":default:base.html.twig" %}
 
-{% block header %}
-    <header id="header">
-        <h1><a href="index.html">Cocooning Students</a></h1>
-        <nav id="nav">
-            <ul>
-                <li><a href="{{path('accueil_homepage')}}">Accueil</a></li>
-                <li><a href="{{path('connexion_homepage')}}">Services</a></li>
-                <li><a href="{{path('contact_homepage')}}">Contact</a></li>
-                <li><a href="{{path('Signup_homepage')}}" class="button special">Sign Up</a></li>
-            </ul>
-        </nav>
-    </header>
-    {% endblock %}
+{% block body %}
+    {% include ':default:menuLogin.html.twig' %} 
 
-{% block form %}
+</section>
+<!-- /Section: works -->
 
-
-    <div class="jumbotron jumbotron-sm">
-    <div class="container">
+<!-- Section: contact -->
+<section id="contact" class="home-section nopadd-bot color-dark bg-gray text-center">
+    <div class="container marginbot-50">
         <div class="row">
-            <div class="col-sm-5 col-lg-5">
-                <h1 class="h1">
-                   <small>contacter nous</small></h1>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="well well-sm">
-                <form>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">
-                                Email Address</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                                </span>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">
-                                Subject</label>
-                            <input type="text" name="subject" placeholder="object">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Message</label>
-                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-                                placeholder="Message"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
-                            Send Message</button>
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
+                    <div class="section-heading text-center">
+                        <h2 class="h-bold">Contact us</h2>
+                        <div class="divider-header"></div>
+                        <p>Lorem ipsum dolor sit amet, agam perfecto sensibus usu at duo ut iriure.</p>
                     </div>
                 </div>
-                </form>
             </div>
         </div>
-        <div class="col-md-4">
-            <form>
-            <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
-            <address>
-                <strong>Twitter, Inc.</strong><br>
-                795 Folsom Ave, Suite 600<br>
-                San Francisco, CA 94107<br>
-                <abbr title="Phone">
-                    P:</abbr>
-                (123) 456-7890
-            </address>
-            <address>
-                <strong>Full Name</strong><br>
-                <a href="mailto:#">first.last@example.com</a>
-            </address>
-            </form>
-        </div>
+
     </div>
-</div>
+
+    <div class="container">
+
+        <div class="row marginbot-80">
+            <div class="col-md-8 col-md-offset-2">
+                <div id="sendmessage">Your message has been sent. Thank you!</div>
+                <div id="errormessage"></div>
+                
+                <form action="{{path('contact_homepage')}}"  method="post" role="form" class="contactForm">
+                    {{form_start(form)}}
+                    {{form_widget(form)}}
+                    {{form_end(form)}}
+
+                </form>
+
+            </div>
+        </div>	
 
 
+    </div>
+</section>
 {% endblock %}
 
+
+
+
 {% block footer %}
-    <!-- Footer -->
-    <footer id="footer">
-        <div class="container">
-            <section class="links">
-                <div class="row">
-                    <section class="col-lg-3">
-                        <h3>L'entreprise</h3>
-                        <ul class="unstyled">
-                            <li><a href="#">A propos</a></li>
-                            <li><a href="#">Règles</a></li>
-                            <li><a href="#">Carrière</a></li>
-                            <li><a href="#">Aide</a></li>
-
-                        </ul>
-                    </section>
-                    <section class="col-lg-3">
-                        <h3>Cocooning Students</h3>
-                        <ul class="unstyled">
-                            <li><a href="#">Comment sa marche ?</a></li>
-                            <li><a href="#">Parrainage</a></li>
-                            <li><a href="#">Confiance et sécurité</a></li>
-                            <li><a href="#">Conditions générales et confidentialité</a></li>
-
-
-                        </ul>
-                    </section>
-                    <section class="col-lg-3">
-                        <h3>Bailleur</h3>
-                        <ul class="unstyled">
-                            <li><a href="#">Pourquoi louer vôtre Chambre ?</a></li>
-                            <li><a href="#">Conditions et règles</a></li>
-                            <li><a href="#">Parrainage bailleur</a></li>
-
-                        </ul>
-                    </section>
-
-                </div>
-            </section>
-            <div class="row">
-                <div class="col-md-3">
-                    <ul class="copyright">
-                        <li>&copy; Cocooning. All rights reserved.</li>
-                        <li>Design: <a href="#">Zayani Mehdi Salim</a></li>
-
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul class="icons">
-                        <li>
-                            <a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
-                        </li>
-                        <li>
-                            <a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
-                        </li>
-                        <li>
-                            <a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
-                        </li>
-                        <li>
-                            <a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    {% include ':default:footer.html.twig' %} 
 {% endblock %}

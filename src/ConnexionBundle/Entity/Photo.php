@@ -13,6 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
 class Photo
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="idPhoto", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idphoto;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="chemin", type="string", length=45, nullable=true)
@@ -27,18 +36,9 @@ class Photo
     private $pcouv;
 
     /**
-     * @var integer
+     * @var \Annonces
      *
-     * @ORM\Column(name="idPhoto", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idphoto;
-
-    /**
-     * @var \ConnexionBundle\Entity\Annonces
-     *
-     * @ORM\ManyToOne(targetEntity="ConnexionBundle\Entity\Annonces")
+     * @ORM\ManyToOne(targetEntity="Annonces")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="Annonces_idannonces", referencedColumnName="idannonces")
      * })
@@ -46,83 +46,37 @@ class Photo
     private $annoncesannonces;
 
 
-
-    /**
-     * Set chemin
-     *
-     * @param string $chemin
-     * @return Photo
-     */
-    public function setChemin($chemin)
-    {
-        $this->chemin = $chemin;
-
-        return $this;
-    }
-
-    /**
-     * Get chemin
-     *
-     * @return string 
-     */
-    public function getChemin()
-    {
-        return $this->chemin;
-    }
-
-    /**
-     * Set pcouv
-     *
-     * @param string $pcouv
-     * @return Photo
-     */
-    public function setPcouv($pcouv)
-    {
-        $this->pcouv = $pcouv;
-
-        return $this;
-    }
-
-    /**
-     * Get pcouv
-     *
-     * @return string 
-     */
-    public function getPcouv()
-    {
-        return $this->pcouv;
-    }
-
-    /**
-     * Get idphoto
-     *
-     * @return integer 
-     */
-    public function getIdphoto()
-    {
+    function getIdphoto() {
         return $this->idphoto;
     }
 
-    /**
-     * Set annoncesannonces
-     *
-     * @param \ConnexionBundle\Entity\Annonces $annoncesannonces
-     * @return Photo
-     */
-    public function setAnnoncesannonces(\ConnexionBundle\Entity\Annonces $annoncesannonces = null)
-    {
-        $this->annoncesannonces = $annoncesannonces;
-
-        return $this;
+    function getChemin() {
+        return $this->chemin;
     }
 
-    /**
-     * Get annoncesannonces
-     *
-     * @return \ConnexionBundle\Entity\Annonces 
-     */
-    public function getAnnoncesannonces()
-    {
+    function getPcouv() {
+        return $this->pcouv;
+    }
+
+    function getAnnoncesannonces() {
         return $this->annoncesannonces;
     }
+
+    function setIdphoto($idphoto) {
+        $this->idphoto = $idphoto;
+    }
+
+    function setChemin($chemin) {
+        $this->chemin = $chemin;
+    }
+
+    function setPcouv($pcouv) {
+        $this->pcouv = $pcouv;
+    }
+
+    function setAnnoncesannonces(\Annonces $annoncesannonces) {
+        $this->annoncesannonces = $annoncesannonces;
+    }
+
+
 }

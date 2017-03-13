@@ -13,6 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
 class Commentaire
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="idcommentaire", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcommentaire;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="contenu", type="string", length=45, nullable=true)
@@ -20,112 +29,57 @@ class Commentaire
     private $contenu;
 
     /**
-     * @var integer
+     * @var \Users
      *
-     * @ORM\Column(name="idcommentaire", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idcommentaire;
-
-    /**
-     * @var \ConnexionBundle\Entity\Users
-     *
-     * @ORM\ManyToOne(targetEntity="ConnexionBundle\Entity\Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="proprietaire", referencedColumnName="idUsers")
-     * })
-     */
-    private $proprietaire;
-
-    /**
-     * @var \ConnexionBundle\Entity\Users
-     *
-     * @ORM\ManyToOne(targetEntity="ConnexionBundle\Entity\Users")
+     * @ORM\ManyToOne(targetEntity="Users")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="commenteur", referencedColumnName="idUsers")
      * })
      */
     private $commenteur;
 
-
-
     /**
-     * Set contenu
+     * @var \Users
      *
-     * @param string $contenu
-     * @return Commentaire
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="proprietaire", referencedColumnName="idUsers")
+     * })
      */
-    public function setContenu($contenu)
-    {
-        $this->contenu = $contenu;
+    private $proprietaire;
 
-        return $this;
-    }
 
-    /**
-     * Get contenu
-     *
-     * @return string 
-     */
-    public function getContenu()
-    {
-        return $this->contenu;
-    }
-
-    /**
-     * Get idcommentaire
-     *
-     * @return integer 
-     */
-    public function getIdcommentaire()
-    {
+    function getIdcommentaire() {
         return $this->idcommentaire;
     }
 
-    /**
-     * Set proprietaire
-     *
-     * @param \ConnexionBundle\Entity\Users $proprietaire
-     * @return Commentaire
-     */
-    public function setProprietaire(\ConnexionBundle\Entity\Users $proprietaire = null)
-    {
-        $this->proprietaire = $proprietaire;
-
-        return $this;
+    function getContenu() {
+        return $this->contenu;
     }
 
-    /**
-     * Get proprietaire
-     *
-     * @return \ConnexionBundle\Entity\Users 
-     */
-    public function getProprietaire()
-    {
+    function getCommenteur() {
+        return $this->commenteur;
+    }
+
+    function getProprietaire() {
         return $this->proprietaire;
     }
 
-    /**
-     * Set commenteur
-     *
-     * @param \ConnexionBundle\Entity\Users $commenteur
-     * @return Commentaire
-     */
-    public function setCommenteur(\ConnexionBundle\Entity\Users $commenteur = null)
-    {
+    function setIdcommentaire($idcommentaire) {
+        $this->idcommentaire = $idcommentaire;
+    }
+
+    function setContenu($contenu) {
+        $this->contenu = $contenu;
+    }
+
+    function setCommenteur(\Users $commenteur) {
         $this->commenteur = $commenteur;
-
-        return $this;
     }
 
-    /**
-     * Get commenteur
-     *
-     * @return \ConnexionBundle\Entity\Users 
-     */
-    public function getCommenteur()
-    {
-        return $this->commenteur;
+    function setProprietaire(\Users $proprietaire) {
+        $this->proprietaire = $proprietaire;
     }
+
+
 }
