@@ -19,6 +19,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 
+
 class EnquiryType extends AbstractType
 {
 
@@ -28,6 +29,7 @@ class EnquiryType extends AbstractType
                  ->add('email', 'email')
                  ->add('subject')
                  ->add('message', 'textarea')
+                 
                 ->add('save','submit');
         
     }
@@ -40,7 +42,7 @@ class EnquiryType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'ConnexionBundle\Entity\Contact',
+            'data_class' => 'AccueilBundle\Entity\Contact',
         ]);
     }
 

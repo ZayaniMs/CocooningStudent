@@ -4,8 +4,8 @@ namespace ConnexionBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use ConnexionBundle\Entity\Users;
-use ConnexionBundle\Entity\Infos;
+use AccueilBundle\Entity\Users;
+use AccueilBundle\Entity\Infos;
 use ConnexionBundle\Form\Type\RegistrationType;
 
 class DefaultController extends Controller {
@@ -19,15 +19,17 @@ class DefaultController extends Controller {
             $password = $request->get('mdp');
             $remenber = $request->get('remenber');
             $em = $this->getDoctrine()->getEntityManager();
-            $repository = $em->getRepository('ConnexionBundle:Users');
+            $repository = $em->getRepository('AccueilBundle:Users');
 
             $user = $repository->findOneBy(array('email' => $mail, 'mdp' => $password));
 
             if ($user) {
-                $identifiant = $this->getDoctrine()->getRepository("ConnexionBundle:Users")->findAll();
+                $identifiant = $this->getDoctrine()->getRepository("AccueilBundle:Users")->findAll();
                 return $this->redirect($this->generateUrl('location_homepage'));
             }
-            return $this->render('ConnexionBundle:Default:connexion.html.twig', array('name' => 'erreur de login'));
+                return $this->render('ConnexionBundle:Default:connexion.html.twig', array('name' => 'erreur de login'));
+
+            
         }
         return $this->render('ConnexionBundle:Default:connexion.html.twig');
     }

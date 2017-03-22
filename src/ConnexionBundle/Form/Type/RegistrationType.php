@@ -13,7 +13,7 @@
  */
 namespace ConnexionBundle\Form\Type;
 
-use ConnexionBundle\Entity\Users;
+use AccueilBundle\Entity\Users;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -41,7 +41,7 @@ class RegistrationType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'ConnexionBundle\Entity\Users',
+            'data_class' => 'AccueilBundle\Entity\Users',
         ]);
     }
 

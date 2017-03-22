@@ -21,6 +21,12 @@ form textarea { width: 500px; height: 150px; line-height: 26px; font-size: 20px;
 form input[type="submit"] { margin-left: 110px; width: 508px; line-height: 26px; font-size: 20px; min-height: 26px; }
 form ul li { color: #ff0000; margin-bottom: 5px; }
 
+
+input#annonce_adresse.adresse{
+     width: 500px; line-height: 26px; font-size: 20px; min-height: 26px;
+    
+}
+
 select#annonce_date_month,select#annonce_date_day,select#annonce_date_year {
     
   margin: 0px auto;

@@ -10,6 +10,17 @@ localisation_homepage:
 location_homepage:
     path:     /location
     defaults: { _controller: AccueilBundle:Default:location }
+    
+
+annonce_homepage:
+    path:     /annonce
+    defaults: { _controller: AccueilBundle:Default:annonce }
+    
+annonces_homepage:
+    path:     /{id}/voir
+    defaults: { _controller: AccueilBundle:Default:VoirAnnonce }
+    requirements:
+        id: \d+
 
 
 contact_homepage:

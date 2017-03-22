@@ -2,16 +2,21 @@
 
 namespace AccueilBundle\Controller;
 
-namespace AccueilBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use ConnexionBundle\Entity\Contact;
-use ConnexionBundle\Entity\Annonces;
-use AccueilBundle\Form\Type\AnnonceType;
+use AccueilBundle\Entity\Contact;
+use AccueilBundle\Entity\Photo;
+
+use AccueilBundle\Entity\Annonces;
+use AccueilBundle\Form\Type\AnnoncesType;
 use AccueilBundle\Form\Type\RegistrationType;
 use AccueilBundle\Form\Type\EnquiryType;
+use AccueilBundle\Form\Type\PhotoType;
+
+
+
 
 class DefaultController extends Controller
 {
@@ -28,7 +33,8 @@ class DefaultController extends Controller
     public function locationAction(Request $request)
     {
         $annonce = new Annonces();
-        $form = $this->createForm(new AnnonceType(),$annonce);
+        //$photo = new Photo();
+        $form = $this->createForm(new AnnoncesType(),$annonce);
         if($request->getMethod() == 'POST'){
             $form->handleRequest($request);
             if($form->isValid()){
@@ -44,6 +50,34 @@ class DefaultController extends Controller
         return $this->render('AccueilBundle:Default:location.html.twig',array('form'=> $form->createView()));
     }
     
+    public function annonceAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        
+        $annonces = $em->getRepository('AccueilBundle:Annonces')->findAll();
+        
+        
+        return $this->render('AccueilBundle:Default:annonce.html.twig',array('annonce'=>$annonces));
+    }
+    
+    public function VoirAnnonceAction($id)
+    {
+        
+        
+        $em = $this->getDoctrine();
+        
+        $annonces = $em->getRepository('AccueilBundle:Annonces')->find($id);
+        
+        
+        
+        
+        
+        //$annonces = array_map('current',$annonce);
+        
+        return $this->render('AccueilBundle:Default:voirannonce.html.twig',array('annonce'=>$annonces,$id));
+    }
+
+
     
     public function contactAction(Request $request) {
         $contact = new Contact();

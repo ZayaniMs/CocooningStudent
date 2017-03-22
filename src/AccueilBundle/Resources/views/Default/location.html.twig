@@ -31,7 +31,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <form class="form-horizontal" action="{{path('location_homepage')}}" role="form" method="POST">
                     {{form_start(form)}}
-                    {{form_widget(form)}}
+                    {{form_widget(form, {'attr': {'onLoad': 'initialize()'} })}}
                     {{form_end(form)}}
                 </form>
             </div>
@@ -42,8 +42,8 @@
         </div>
     </div>
 
-                </br>
-                
+    </br>
+
 
 {% endblock %}
 
@@ -51,5 +51,54 @@
 
     {% include ':default:footer.html.twig' %} 
 
+{% endblock %}
+
+
+{% block javascripts %}
+
+    <script>
+        var autocomplete;
+
+
+
+        function initialize() {
+            // Creating the autocomplete object
+            // Restrict to geographical location types
+            autocomplete = new google.maps.places.Autocomplete(
+                    (document.getElementById('annonce_adresse')),
+                    {types: ['geocode']}
+            );
+
+            autocomplete.addListener('place_changed', fillInAddress);
+
+            function fillInAddress() {
+                // Get the place details from the autocomplete object.
+                var place = autocomplete.getPlace();
+
+                for (var component in componentForm) {
+                    document.getElementById(component).value = '';
+                    document.getElementById(component).disabled = false;
+                }
+
+                // Get each component of the address from the place details
+                // and fill the corresponding field on the form.
+                for (var i = 0; i < place.address_components.length; i++) {
+                    var addressType = place.address_components[i].types[0];
+                    if (componentForm[addressType]) {
+                        var val = place.address_components[i][componentForm[addressType]];
+                        document.getElementById(addressType).value = val;
+                    }
+                }
+            }
+        }
+
+        
+    </script>
+
+
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx04nr5sD4dxczEU-K-0TJqUu44bIHcq4&libraries=places&callback=initialize">
+    </script>
 {% endblock %}
 
