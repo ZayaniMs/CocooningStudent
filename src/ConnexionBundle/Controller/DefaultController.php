@@ -5,7 +5,7 @@ namespace ConnexionBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AccueilBundle\Entity\Users;
-use AccueilBundle\Entity\Infos;
+use AccueilBundle\Entity\UsersRepository;
 use ConnexionBundle\Form\Type\RegistrationType;
 
 class DefaultController extends Controller {
@@ -18,28 +18,100 @@ class DefaultController extends Controller {
             $mail = $request->get('email');
             $password = $request->get('mdp');
             $remenber = $request->get('remenber');
+            $locataire = $request->get('locataire');
+
             $em = $this->getDoctrine()->getEntityManager();
             $repository = $em->getRepository('AccueilBundle:Users');
 
+            $userLoc = $repository->getLoc();
+
+
             $user = $repository->findOneBy(array('email' => $mail, 'mdp' => $password));
 
-            if ($user) {
+            if ($user && $userLoc) {
                 $identifiant = $this->getDoctrine()->getRepository("AccueilBundle:Users")->findAll();
-                return $this->redirect($this->generateUrl('location_homepage'));
+                return $this->redirect($this->generateUrl('annonce_homepage'));
             }
-                return $this->render('ConnexionBundle:Default:connexion.html.twig', array('name' => 'erreur de login'));
 
-            
+            return $this->render('ConnexionBundle:Default:loginLocataire.html.twig', array('name' => 'erreur de login. Veillez vous conntez en tant que locataire',));
         }
         return $this->render('ConnexionBundle:Default:connexion.html.twig');
     }
 
-    public function connexionLocAction() {
+    public function connexionLocAction(Request $request) {
+
+        $session = $this->getRequest()->getSession();
+
+        if ($request->getMethod() == 'POST') {
+            $session->clear();
+            $mail = $request->get('email');
+            $password = $request->get('mdp');
+            $remenber = $request->get('remenber');
+            //$locataire = $request->get('locataire');
+            $em = $this->getDoctrine()->getEntityManager();
+            $repository = $em->getRepository('AccueilBundle:Users');
+
+            $userLoc = $repository->getLoc($mail);
+
+
+
+
+
+
+
+            var_dump($userLoc);
+
+
+            $user = $repository->findOneBy(array('email' => $mail, 'mdp' => $password));
+
+
+
+            if ($user && $userLoc["locataire"] == 'true') {
+                $identifiant = $this->getDoctrine()->getRepository("AccueilBundle:Users")->findAll();
+                return $this->redirect($this->generateUrl('annonce_homepage'));
+            }
+
+            return $this->render('ConnexionBundle:Default:loginLocataire.html.twig', array('erreur' => 'erreure de login. Veillez vous connectez entant que locataire'));
+        }
 
         return $this->render('ConnexionBundle:Default:loginLocataire.html.twig');
     }
 
-    public function connexionProprietaireAction() {
+    public function connexionProprietaireAction(Request $request) {
+
+        $session = $this->getRequest()->getSession();
+
+        if ($request->getMethod() == 'POST') {
+            $session->clear();
+            $mail = $request->get('email');
+            $password = $request->get('mdp');
+            $remenber = $request->get('remenber');
+            //$locataire = $request->get('locataire');
+            $em = $this->getDoctrine()->getEntityManager();
+            $repository = $em->getRepository('AccueilBundle:Users');
+
+            $userLoc = $repository->getLoc($mail);
+
+
+
+
+
+
+
+            var_dump($userLoc);
+
+
+            $user = $repository->findOneBy(array('email' => $mail, 'mdp' => $password));
+
+
+
+            if ($user && ! $userLoc["locataire"] == 'true') {
+                $identifiant = $this->getDoctrine()->getRepository("AccueilBundle:Users")->findAll();
+                return $this->redirect($this->generateUrl('annonce_homepage'));
+            }
+
+            return $this->render('ConnexionBundle:Default:loginProprietaire.html.twig', array('erreur' => 'erreure de login. Veillez vous connectez avec votre compte proprietaire'));
+        }
 
         return $this->render('ConnexionBundle:Default:loginProprietaire.html.twig');
     }

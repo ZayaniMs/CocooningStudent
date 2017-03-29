@@ -30,7 +30,11 @@ class EnquiryType extends AbstractType
                  ->add('subject')
                  ->add('message', 'textarea')
                  
-                ->add('save','submit');
+                ->add('Envoyer','submit',array(
+                    'attr'=>array(
+                        'class'=>'btn btn-skin'
+                    )
+                ));
         
     }
 

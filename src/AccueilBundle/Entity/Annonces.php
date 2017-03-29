@@ -6,12 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Annonces
- * @ORM\Entity(repositoryClass="AccueilBundle\Repository\InfosRepository")
- * @ORM\Table(name="annonces")
+ *
+ * @ORM\Table(name="annonces", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_CB988C6F3DA5256D", columns={"image_id"})})
  * @ORM\Entity
  */
-class Annonces {
-
+class Annonces
+{
     /**
      * @var integer
      *
@@ -78,10 +78,27 @@ class Annonces {
     private $ville;
 
     /**
-     * @ORM\OneToOne(targetEntity="AccueilBundle\Entity\Image", cascade={"persist"})
+     * @var \Image
+     *
+     * @ORM\ManyToOne(targetEntity="Image")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="image_id", referencedColumnName="id")
+     * })
      */
     private $image;
-
+    
+    
+     /**
+     * @var \Users
+     *
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="idusers")
+     * })
+     */
+    private $user;
+    
+    
     function getIdannonces() {
         return $this->idannonces;
     }
@@ -116,6 +133,10 @@ class Annonces {
 
     function getVille() {
         return $this->ville;
+    }
+
+    function getImage() {
+        return $this->image;
     }
 
     function setIdannonces($idannonces) {
@@ -154,12 +175,21 @@ class Annonces {
         $this->ville = $ville;
     }
 
-    function getImage() {
-        return $this->image;
-    }
-
-    function setImage($image) {
+    function setImage(\Image $image) {
         $this->image = $image;
     }
+
+    
+    function getUser() {
+        return $this->user;
+    }
+
+    function setUser(\Users $user) {
+        $this->user = $user;
+    }
+
+
+
+
 
 }

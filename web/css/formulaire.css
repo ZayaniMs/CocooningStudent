@@ -27,6 +27,21 @@ input#annonce_adresse.adresse{
     
 }
 
+select#registration_locataire{
+    width: 500px; line-height: 26px; font-size: 20px; min-height: 26px;
+    
+}
+input#registration_locataire_0{
+        width: 150px;
+
+    
+}
+
+input#registration_locataire_1{
+            width: 20px; font-size: 20px;
+
+}
+
 select#annonce_date_month,select#annonce_date_day,select#annonce_date_year {
     
   margin: 0px auto;

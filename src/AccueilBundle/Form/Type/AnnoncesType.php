@@ -44,7 +44,9 @@ class AnnoncesType extends AbstractType {
                 ->add('ville')
                 ->add('description', 'textarea')
                 ->add('image',new ImageType())
-                ->add('Publiez', 'submit');
+                ->add('Publiez', 'submit',array(
+                    'attr'=>array('class'=>'btn btn-skin')
+                ));
     }
 
     public function getName() {

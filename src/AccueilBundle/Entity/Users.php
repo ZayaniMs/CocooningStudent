@@ -6,12 +6,11 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Users
- *
+ * @ORM\Entity(repositoryClass="AccueilBundle\Entity\UsersRepository")
  * @ORM\Table(name="users")
- * @ORM\Entity
  */
-class Users
-{
+class Users {
+
     /**
      * @var integer
      *
@@ -76,10 +75,25 @@ class Users
      * @ORM\Column(name="ville", type="string", length=45, nullable=true)
      */
     private $ville;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="locataire", type="boolean", nullable=true)
+     */
+    private $locataire;
     
     
-    
-    
+    /**
+     * @var \Annonces
+     *
+     * @ORM\ManyToOne(targetEntity="Annonces")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="annonce_id", referencedColumnName="idannonces")
+     * })
+     */
+    private $annonce;
+
     function getIdusers() {
         return $this->idusers;
     }
@@ -114,6 +128,10 @@ class Users
 
     function getVille() {
         return $this->ville;
+    }
+
+    function getLocataire() {
+        return $this->locataire;
     }
 
     function setIdusers($idusers) {
@@ -152,7 +170,18 @@ class Users
         $this->ville = $ville;
     }
 
+    function setLocataire($locataire) {
+        $this->locataire = $locataire;
+    }
+    
+    
+    function getAnnonce() {
+        return $this->annonce;
+    }
 
+    function setAnnonce(\Annonces $annonce) {
+        $this->annonce = $annonce;
+    }
 
 
 }

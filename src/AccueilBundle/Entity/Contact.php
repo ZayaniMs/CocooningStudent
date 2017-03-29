@@ -55,6 +55,57 @@ class Contact
      * @ORM\Column(name="message", type="string", length=500, nullable=false)
      */
     private $message;
+    
+    
+    function getId() {
+        return $this->id;
+    }
+
+    function getIdcontact() {
+        return $this->idcontact;
+    }
+
+    function getNom() {
+        return $this->nom;
+    }
+
+    function getEmail() {
+        return $this->email;
+    }
+
+    function getSubject() {
+        return $this->subject;
+    }
+
+    function getMessage() {
+        return $this->message;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setIdcontact($idcontact) {
+        $this->idcontact = $idcontact;
+    }
+
+    function setNom($nom) {
+        $this->nom = $nom;
+    }
+
+    function setEmail($email) {
+        $this->email = $email;
+    }
+
+    function setSubject($subject) {
+        $this->subject = $subject;
+    }
+
+    function setMessage($message) {
+        $this->message = $message;
+    }
+
+
 
 
 }

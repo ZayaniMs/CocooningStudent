@@ -45,39 +45,5 @@ class Photo
      */
     private $annoncesannonces;
 
-    
-    function getIdphoto() {
-        return $this->idphoto;
-    }
-
-    function getChemin() {
-        return $this->chemin;
-    }
-
-    function getPcouv() {
-        return $this->pcouv;
-    }
-
-    function getAnnoncesannonces() {
-        return $this->annoncesannonces;
-    }
-
-    function setIdphoto($idphoto) {
-        $this->idphoto = $idphoto;
-    }
-
-    function setChemin($chemin) {
-        $this->chemin = $chemin;
-    }
-
-    function setPcouv($pcouv) {
-        $this->pcouv = $pcouv;
-    }
-
-    function setAnnoncesannonces(\Annonces $annoncesannonces) {
-        $this->annoncesannonces = $annoncesannonces;
-    }
-
-
 
 }
